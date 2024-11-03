@@ -1,80 +1,18 @@
+## no need to configure current ad map as it's being defined dynamically by ad-list.article-body by referring channels (fbapp)
 - name: mvt.tests.aggregated_us
   targeting:
     country: [us]
-    channel: [sciencetech]
+    channel: [sciencetech, health, ushealth]
     device: [androidMobile, iphone]
+    pageType: [article]
   payload:
     size: 1
     scope: page
     scenarios:
-      control_CNXpara4_pageload_standardmpu:
+      current_standardmpu:
+        config: {}
+      optimized_LL1000px_morempu:
         config:
-          - slots.enabled.mpu_mobile_top:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile_upper_middle:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile_lower_middle:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile_others:
-              loadingType: immediate
-      testgroup7_CNXpara9_LL1000px_higherfrequencympu:
-        config:
-          - slots.enabled.mpu_mobile_top:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile:
-              loadingOffset: 1000
-              loadingTrigger: $this
-              loadingType: lazy
-          - slots.enabled.mpu_mobile_upper_middle:
-              loadingOffset: 1000
-              loadingTrigger: $this
-              loadingType: lazy
-          - slots.enabled.mpu_mobile_lower_middle:
-              loadingOffset: 1000
-              loadingTrigger: $this
-              loadingType: lazy
-          - slots.enabled.mpu_mobile_others:
-              loadingOffset: 1000
-              loadingTrigger: $this
-              loadingType: lazy
-
-- payload:
-    size: 1
-    scope: page
-    scenarios:
-      control_CNXpara4_pageload_standardmpu:
-        config:
-          - pos.connatix.v2.playerId: da20f2c8-f468-4c95-8dfe-efdb4a395121
-          - pos.connatix.paragraphIndex: 4
-          - slots.enabled.mpu_mobile_top:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile_upper_middle:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile_lower_middle:
-              loadingType: immediate
-          - slots.enabled.mpu_mobile_others:
-              loadingType: immediate
-          - ad-list.article-body:
-              - index: 2
-                position: mpu_mobile_top
-              - index: 4
-                position: mpu_mobile_upper_middle
-              - index: 14
-                position: mpu_mobile_lower_middle
-              - every: 10
-                start: 24
-                position: mpu_mobile_others
-              - index: last
-                position: mpu_mobile
-
-      testgroup7_CNXpara9_LL1000px_higherfrequencympu:
-        config:
-          - pos.connatix.v2.playerId: c71bf955-65c8-4697-8bf4-8b8115c2b8de
-          - pos.connatix.paragraphIndex: 11
           - slots.enabled.mpu_mobile_top:
               loadingType: immediate
           - slots.enabled.mpu_mobile:
@@ -94,14 +32,14 @@
               loadingTrigger: $this
               loadingType: lazy
           - ad-list.article-body:
-              - index: 3
+              - index: 2
                 position: mpu_mobile_top
-              - index: 7
+              - index: 6
                 position: mpu_mobile_upper_middle
-              - index: 15
+              - index: 10
                 position: mpu_mobile_lower_middle
               - every: 4
-                start: 19
+                start: 14
                 position: mpu_mobile_others
               - index: last
                 position: mpu_mobile
