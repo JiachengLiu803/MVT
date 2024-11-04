@@ -1,5 +1,5 @@
 ## no need to configure current ad map as it's being defined dynamically by ad-list.article-body by referring channels (fbapp)
-- name: mvt.tests.admap_us_art
+- name: mvt.tests.admap_us_moart
   targeting:
     country: [us]
     channel: [sciencetech, health, ushealth]
