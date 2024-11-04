@@ -1,5 +1,5 @@
 ## no need to configure current ad map as it's being defined dynamically by ad-list.article-body by referring channels (fbapp)
-- name: mvt.tests.aggregated_us
+- name: mvt.tests.admap_us_art
   targeting:
     country: [us]
     channel: [sciencetech, health, ushealth]
@@ -9,9 +9,23 @@
     size: 1
     scope: page
     scenarios:
-      current_standardmpu:
+      current_mpu:
         config: {}
-      optimized_LL1000px_morempu:
+      para4_mpu:
+        config:
+          - ad-list.article-body:
+              - index: 2
+                position: mpu_mobile_top
+              - index: 6
+                position: mpu_mobile_upper_middle
+              - index: 10
+                position: mpu_mobile_lower_middle
+              - every: 4
+                start: 14
+                position: mpu_mobile_others
+              - index: last
+                position: mpu_mobile
+      LL1000px_para4_mpu:
         config:
           - slots.enabled.mpu_mobile_top:
               loadingType: immediate
@@ -43,5 +57,35 @@
                 position: mpu_mobile_others
               - index: last
                 position: mpu_mobile
-
-# optimized_LL?????px_morempu
+      LL1500px_para4_mpu:
+        config:
+          - slots.enabled.mpu_mobile_top:
+              loadingType: immediate
+          - slots.enabled.mpu_mobile:
+              loadingOffset: 1500
+              loadingTrigger: $this
+              loadingType: lazy
+          - slots.enabled.mpu_mobile_upper_middle:
+              loadingOffset: 1500
+              loadingTrigger: $this
+              loadingType: lazy
+          - slots.enabled.mpu_mobile_lower_middle:
+              loadingOffset: 1500
+              loadingTrigger: $this
+              loadingType: lazy
+          - slots.enabled.mpu_mobile_others:
+              loadingOffset: 1500
+              loadingTrigger: $this
+              loadingType: lazy
+          - ad-list.article-body:
+              - index: 2
+                position: mpu_mobile_top
+              - index: 6
+                position: mpu_mobile_upper_middle
+              - index: 10
+                position: mpu_mobile_lower_middle
+              - every: 4
+                start: 14
+                position: mpu_mobile_others
+              - index: last
+                position: mpu_mobile
